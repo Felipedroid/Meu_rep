@@ -1,0 +1,14 @@
+from urllib.parse import urlparse
+
+def domain_name(url):
+
+    if 'www.' in url:
+        resposta = url.split('.')[1]
+
+    else: 
+        resposta2 = urlparse(url).netloc.split('.')[0]
+        if resposta2 == '':
+            resposta = url.split('.')[0]
+        else:
+            resposta = resposta2
+    return resposta
