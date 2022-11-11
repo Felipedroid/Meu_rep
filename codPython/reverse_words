@@ -1,0 +1,21 @@
+def reverse_words(text):
+    count = 0
+    for i in range(0, len(text)):
+        if text[i] == " ":
+            count += 1
+            
+    s = text.split()[::-1]
+    l = []
+    for i in s:
+        l.append(i)
+    
+    if len(s) - 1 != 0: 
+        nums = int(count/(len(s) - 1))
+        if nums == 2:
+            resposta = '  '.join(l)[::-1]
+        else:
+            resposta = ' '.join(l)[::-1]
+    else:
+        resposta = ' '.join(l)[::-1]
+    
+    return resposta
