@@ -1,0 +1,28 @@
+def shuffle_musicas(musicas_tocadas):
+    
+    lis1=[]
+    lis_final = []
+    for i in musicas_tocadas:
+        lis1.append(i)
+        
+    lis1.sort()
+        
+    musicas_tocadas.sort(reverse = True)    
+    
+    x = zip(musicas_tocadas, lis1)
+    z = tuple(x)
+
+    s = []
+    for x in z:
+        for i in x:
+            if i not in s:
+                s.append(i)
+    
+    if s == [1, 0]:
+        resposta = s+s
+    else:
+        resposta = s
+
+    print(resposta)
+
+shuffle_musicas([2, 5, 10, 3])   #[10,2,5,3]
