@@ -1,0 +1,26 @@
+from itertools import permutations
+def menor_string_maior(name):
+    lis = []
+    count = 0
+    perm = (''.join(chars) for chars in permutations(name))
+    for x in perm:
+        if count < 15:
+            lis.append(x)
+            count +=1
+    
+    index = sorted(lis).index(name)
+    
+    count2 = 0
+    resposta = sorted(lis)[index + count2]
+    
+    if sorted(lis)[-1] == name:
+        resposta = "sem resposta"
+    
+    elif name == resposta:
+        while name == resposta:
+            resposta = sorted(lis)[index + count2]
+            count2 +=1
+        
+    print(resposta)
+    
+menor_string_maior("qualified")
