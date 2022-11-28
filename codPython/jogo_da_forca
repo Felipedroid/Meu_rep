@@ -1,34 +1,34 @@
-palavra_secreta = input("qual a palavra: ")
+palavra_secreta = input("Digite uma palavra secreta: ").lower()
 
+user_screen = []
 
-word_length = len(palavra_secreta)
+for _ in palavra_secreta:
+    user_screen += "*"
 
-fim_de_jogo = False
-lives = 6
+resposta = ''
+life = 10
 
-display = []
-for _ in range(word_length):
-    display += "_"
-
-while not fim_de_jogo:
-    chute = input("Guess a letter: ").lower()
-
-    if chute in display:
-        print(f"you've already guessed {chute}")
-
-    for position in range(word_length):
-        letter = palavra_secreta[position]
-        if letter == chute:
-            display[position] = letter
-
-    if chute not in palavra_secreta:
-        print(f"you guessed {chute}, that's not in the word. You lose a life.")
-        lives -= 1
-        if lives == 0:
-            fim_de_jogo = True
-            print("You lose.")
-
-    print(f"{' '.join(display)}")
-    if "_" not in display:
-        fim_de_jogo = True
-        print("You win.")
+while True:
+    chute = input("\nChute uma letra: ").lower()
+    if chute in resposta:
+        print("\nVC ja acertou essa letra, pfv, chute outra")
+    elif chute in palavra_secreta:
+        for i in range(0, len(palavra_secreta)):
+            if chute == palavra_secreta[i]:
+                user_screen.pop(i)
+                user_screen.insert(i, chute)
+        resposta = ''.join(user_screen)
+        if resposta == palavra_secreta:
+            print(resposta)
+            print("\nVC ACERTOU!!\nFim de jogo")
+            break
+        else:
+            print(resposta)
+    else:
+        print("\nERROU")
+        life -= 1
+        if life == 0:
+            print("\nSuas tentativas acabaram")
+            break
+        else:
+            print(f"\nVC AINDA TEM {life} TENTATIVAS")
