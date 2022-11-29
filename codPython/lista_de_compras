@@ -1,0 +1,19 @@
+lista_de_compras = []
+
+while True:
+    escolha = input("\nSelecione uma opção:\n[i]nserir, [a]pagar, [l]istar: ").lower()
+    if escolha == 'i':
+        item = input("digite o item que vc deseja inserir: ")
+        lista_de_compras.append(item)
+    if escolha == 'a':
+        indice = int(input("Digite o indice que vc quer apagar: "))
+        try:
+            lista_de_compras.pop(indice)
+        except:
+            print("Esse índice não existe na lista de compras")
+    if escolha == 'l':
+        lista_enumerada = enumerate(lista_de_compras)
+        for index, nome in lista_enumerada:
+            print(index, nome)
+    else:
+        print("Selecione uma opção válida")
