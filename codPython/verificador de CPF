@@ -1,0 +1,37 @@
+numeros_cpf = list(input("Digite seu CPF (APENAS NUMEROS): "))
+numeros_cpf = [int(x) for x in numeros_cpf]
+
+nove_dgts = numeros_cpf[:len(numeros_cpf) - 2]
+
+multiplicador_um = 10
+resultado_mult_primeiro = []
+
+for num in range(0, len(nove_dgts)):
+    resultado_mult_primeiro.append(numeros_cpf[num] * multiplicador_um)
+    multiplicador_um -= 1
+
+resultado1 = ((sum(resultado_mult_primeiro)) * 10) % 11
+
+resultado1 = resultado1 if resultado1 <= 9 else 0
+
+lista_comparativa = numeros_cpf[:len(numeros_cpf) - 2]
+
+lista_comparativa.append(resultado1)
+
+multiplicador_dois = 11
+resultado_multi_segundo = []
+
+for num in range(0, len(lista_comparativa)):
+    resultado_multi_segundo.append(lista_comparativa[num] * multiplicador_dois)
+    multiplicador_dois -= 1
+
+resultado2 = ((sum(resultado_multi_segundo)) * 10) % 11
+
+resultado2 = resultado2 if resultado2 <= 9 else 0
+
+lista_comparativa.append(resultado2)
+
+if lista_comparativa == numeros_cpf:
+    print("CPF válido")
+else:
+    print("CPF inválido")
