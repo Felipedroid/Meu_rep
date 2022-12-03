@@ -1,4 +1,4 @@
-numeros_cpf = list(input("Digite seu CPF (APENAS NUMEROS): ").replace('.', '').replace('-', '').replace(' ', ''))
+numeros_cpf = list(input("Digite seu CPF: ").replace('.', '').replace('-', '').replace(' ', ''))
 numeros_cpf = [int(x) for x in numeros_cpf]
 
 nove_dgts = numeros_cpf[:len(numeros_cpf) - 2]
