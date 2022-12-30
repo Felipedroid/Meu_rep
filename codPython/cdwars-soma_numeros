@@ -1,0 +1,10 @@
+#Soma retornar dois indices q somados são iguais ao target
+
+
+def two_sum(numbers, target):
+    for index1, numero1 in enumerate(numbers):
+        for index2, numero2 in enumerate(numbers):
+            if index1 != index2 and numero1 + numero2 == target:
+                return [index1, index2]
+
+two_sum([1,2,3], 4) #resposta == [0, 2]
