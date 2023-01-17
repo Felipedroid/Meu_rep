@@ -1,0 +1,16 @@
+'''
+Complete the solution so that it splits the string into pairs of two characters. 
+If the string contains an odd number of characters then it should replace the missing second character of the final pair with an underscore ('_').
+'''
+
+def solution(s):
+    nova_tupla = ''
+    lista_de_letras = []
+    if len(s) % 2 != 0:
+        s += '_'
+    for letter in s:
+        nova_tupla += letter
+        if len(nova_tupla) == 2:
+            lista_de_letras.append(nova_tupla)
+            nova_tupla = ''
+    return lista_de_letras
