@@ -6,7 +6,11 @@ Only worry about the following format:
 (123) 456-7890 (don't forget the space after the close parentheses)
 '''
 def valid_phone_number(phone_number):
-    if len(phone_number) == 14 and phone_number[0] == '(' and phone_number[4] == ')' and phone_number[5] == ' ' and phone_number[9] == '-' and phone_number[1:4].isdigit() and phone_number[6:9].isdigit() and phone_number[10:].isdigit():
-        return True
+    if len(phone_number) == 14:
+        check_char_position = phone_number[0] == '(' and phone_number[4] == ')' and phone_number[5] == ' ' and phone_number[9] == '-' 
+        check_isDigit = phone_number[1:4].isdigit() and phone_number[6:9].isdigit() and phone_number[10:].isdigit()
+        
+        return check_char_position and check_isDigit
+    
     else:
         return False
